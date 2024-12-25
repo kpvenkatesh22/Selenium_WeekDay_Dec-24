@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class CreateAccountExample {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://leaftaps.com/opentaps/");
@@ -16,6 +16,7 @@ public class CreateAccountExample {
 		driver.findElement(By.id("password")).sendKeys("crmsfa");
 		driver.findElement(By.className("decorativeSubmit")).click();
 		//driver.switchTo().alert().accept();
+		
 		//driver.switchTo().defaultContent()
 		
 		driver.findElement(By.linkText("CRM/SFA")).click();
@@ -44,10 +45,12 @@ public class CreateAccountExample {
 		Select stateprov = new Select(state);
 		stateprov.selectByValue("TX");
 		
+		driver.findElement(By.className("smallSubmit")).click();
+		Thread.sleep(5000);
+		driver.close();
 		
+		driver.findElement(By.className(null));
 		
-		
-
-	}
+		}
 
 }
